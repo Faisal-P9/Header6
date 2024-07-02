@@ -88,7 +88,7 @@
           
               let value = window.scrollY;
           
-          
+              if( !(value >= 820) ) {
               planet.style.marginLeft  = value * -0.2 + 'px';
               big_island.style.marginBottom  = value * 0.1 + 'px';
               small_island.style.marginBottom  = value * 0.01 + 'px';
@@ -102,9 +102,7 @@
               grass.style.marginTop = value * -0.09 + 'px';
               sun.style.marginBottom = value * 0.3 + 'px';
           
-              let flower = gsap.timeline({});
-
-              flower
+              }
 
               // big_island.style.transition = "0.2s linear";
               // small_island_left.style.transition = "0.2s linear";
@@ -118,7 +116,9 @@
             });
         },500);
 
+    })
 
+    $(window).on('load', function(){
         // Swiper
 
         var swiper = new Swiper('.swiper', {
