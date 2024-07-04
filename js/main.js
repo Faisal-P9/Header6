@@ -8,6 +8,7 @@
         document.getElementById('loader').style.display = 'none';
         document.getElementById('allContents').style.display = 'block';
 
+        tHeader.play();
     // Make the body visible now that everything is loaded
         document.body.style.visibility = 'visible';
       }
@@ -15,10 +16,10 @@
     // })
 
 
-        let tHeader = gsap.timeline({})
+        let tHeader = gsap.timeline({ paused: true})
 
         tHeader
-        .to('.header__masking--maskLayer', { duration: 0.8, opacity: 1, stagger: 0.14, ease: "power4.in" })
+        .to('.header__masking--maskLayer', { duration: 0, opacity: 1, stagger: 0.16, ease: "power4.out" })
 
         .add('head', '-=0.2')
         .to('.header__masking', { duration: 0, opacity: 0, ease: "none" }, 'head')
@@ -68,8 +69,6 @@
         }
 
 
-
-        setTimeout(function() {
             $(window).scroll(function () {
               let planet = document.getElementById('planet1');
               let big_island = document.getElementById('big_island');
@@ -88,6 +87,7 @@
           
               let value = window.scrollY;
           
+                    
               if( !(value >= 820) ) {
               planet.style.marginLeft  = value * -0.2 + 'px';
               big_island.style.marginBottom  = value * 0.1 + 'px';
@@ -114,11 +114,10 @@
               // sun.style.transition = "0.2s linear";
               // grass.style.transition = "0.2s linear";
             });
-        },500);
 
-    })
+      })
 
-    $(window).on('load', function(){
+      $(window).on('load', function(){
         // Swiper
 
         var swiper = new Swiper('.swiper', {
